@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MR JUBAYER TRADER</title>
+<style>
+body{background:#0a0e1a;color:white;font-family:Arial;text-align:center;padding:15px;margin:0}
+.login-box{background:#151a2d;padding:30px;border-radius:15px;max-width:350px;margin:60px auto;box-shadow:0 0 30px #00ff8844}
+.card{background:#151a2d;padding:20px;border-radius:15px;max-width:400px;margin:20px auto;box-shadow:0 0 20px #00ff8844;display:none}
+h1{color:#00ff88;margin:10px 0;font-size:22px}
+.profile-img{width:130px;height:130px;border-radius:50%;border:3px solid #00ff88;object-fit:cover;box-shadow:0 0 20px #00ff88}
+.signal{font-size:38px;margin:15px;font-weight:bold}
+button{background:#00ff88;color:#000;border:none;padding:13px 25px;border-radius:10px;font-size:16px;font-weight:bold;width:100%;margin-top:10px;cursor:pointer}
+input{width:85%;padding:13px;border-radius:8px;border:none;margin:10px 0;text-align:center;font-size:16px}
+.price{font-size:20px;margin:12px;background:#0a0e1a;padding:10px;border-radius:8px}
+</style>
+</head>
+<body>
+<div class="login-box" id="loginBox">
+<h2 style="color:#00ff88">🔒 MR JUBAYER TRADER</h2>
+<p>Enter Password to Access</p>
+<input type="password" id="pass" placeholder="Password">
+<button onclick="checkPass()">UNLOCK BOT</button>
+<p id="err" style="color:#ff4444;display:none;margin-top:10px">Wrong Password!</p>
+</div>
+
+<div class="card" id="mainCard">
+<img src="photo.jpg" class="profile-img">
+<h1>MR JUBAYER TRADER</h1>
+<p style="opacity:0.7;margin:0;font-size:13px">Premium Trading Signal Bot</p>
+<div class="price" id="price">EUR/USD: 1.0845</div>
+<div class="signal" id="signal">⏳</div>
+<div id="text" style="margin-bottom:10px">Analyzing Market...</div>
+<button onclick="generate()">GET SIGNAL</button>
+</div>
+
+<script>
+function checkPass(){
+  var p=document.getElementById('pass').value;
+  if(p==='jubayer'){
+    document.getElementById('loginBox').style.display='none';
+    document.getElementById('mainCard').style.display='block';
+    generate();
+  }else{
+    document.getElementById('err').style.display='block';
+  }
+}
+function generate(){
+document.getElementById('text').innerText='Analyzing...';
+document.getElementById('signal').innerText='⏳';
+setTimeout(()=>{
+let s=Math.random()>0.5?'CALL 📈':'PUT 📉';
+let c=s.includes('CALL')?'#00ff88':'#ff4444';
+document.getElementById('signal').innerText=s;
+document.getElementById('signal').style.color=c;
+document.getElementById('text').innerText=s.includes('CALL')?'Market UP - CALL':'Market DOWN - PUT';
+},800);
+}
+setInterval(()=>{
+let p=(1.08+Math.random()*0.01).toFixed(4);
+document.getElementById('price').innerText='EUR/USD: '+p;
+},1500);
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MR Jubayer Trader - Live Bot</title>
+<style>
+body{background:#0a0e1a;color:white;font-family:Arial;text-align:center;padding:20px}
+.card{background:#151a2d;padding:20px;border-radius:15px;max-width:400px;margin:auto;box-shadow:0 0 20px #00ff8844}
+h1{color:#00ff88}
+.signal{font-size:50px;margin:20px}
+button{background:#00ff88;color:#000;border:none;padding:15px 30px;border-radius:10px;font-size:18px;font-weight:bold;width:100%;margin-top:10px}
+.price{font-size:24px;margin:15px}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>MR JUBAYER TRADER</h1>
+<div class="price" id="price">EUR/USD: 1.0845</div>
+<div class="signal" id="signal">⏳</div>
+<div id="text">Analyzing Market...</div>
+<button onclick="generate()">GET SIGNAL</button>
+<div style="margin-top:15px;font-size:12px;opacity:0.6">Live Qtex Analysis v2</div>
+</div>
+<script>
+function generate(){
+document.getElementById('text').innerText='Analyzing...';
+setTimeout(()=>{
+let s=Math.random()>0.5?'CALL 📈':'PUT 📉';
+let c=s.includes('CALL')?'#00ff88':'#ff4444';
+document.getElementById('signal').innerText=s;
+document.getElementById('signal').style.color=c;
+document.getElementById('text').innerText=s.includes('CALL')?'Market Going UP':'Market Going DOWN';
+},800);
+}
+setInterval(()=>{
+let p=(1.08+Math.random()*0.01).toFixed(4);
+document.getElementById('price').innerText='EUR/USD: '+p;
+},1500);
+generate();
+</script>
+</body>
+</html>
