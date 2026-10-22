@@ -1,114 +1,45 @@
-
-
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>JUBAYER BOT</title>
-<style>
-body{background:#0a0e1a;color:#fff;text-align:center;font-family:Arial;padding:15px}
-.box{background:#151a2d;padding:25px;border-radius:20px;max-width:380px;margin:30px auto;border:1px solid #1f2d5a;box-shadow:0 0 30px #0a1930}
-.logo{width:185px;height:185px;border-radius:50%;border:3px solid #f0c75e;box-shadow:0 0 25px #f0c75e55;object-fit:cover;margin:20px auto 0;display:block;background:#0a1930}
-button{background:#f0c75e;color:#0a1930;padding:14px;width:100%;border:none;border-radius:12px;font-weight:bold;font-size:18px;margin-top:12px;cursor:pointer}
-input{padding:13px;width:88%;border-radius:10px;border:none;text-align:center;font-size:16px}
-#main{display:none}
-.signal{font-size:50px;margin:22px;font-weight:bold;min-height:60px}
-</style></head><body>
-<div class="box" id="loginBox">
-<input type="password" id="pass" placeholder="Enter Password">
-<button onclick="checkPass()">UNLOCK BOT</button>
-<p id="err" style="color:#ff5555;display:none;margin-top:10px">Wrong Password!</p>
-<img src="logo.png" class="logo">
-</div>
-<div class="box" id="main">
-<div class="signal" id="signal">-</div>
-<div id="text" style="color:#8aa0c8">Waiting for 55s...</div>
-<button onclick="generate()">GET SIGNAL NOW</button>
-<img src="logo.png" class="logo">
-</div>
-<script>
-function checkPass(){
- if(document.getElementById('pass').value==="jubayer2151"){
-  document.getElementById('loginBox').style.display='none';
-  document.getElementById('main').style.display='block';
- } else {
-  document.getElementById('err').style.display='block';
- }
-}
-function generate(){
- document.getElementById('text').innerText='Analyzing...';
- document.getElementById('signal').innerText='⌛';
- setTimeout(()=>{
-  let s=Math.random()>0.5?'CALL 📈':'PUT 📉';
-  let el=document.getElementById('signal');
-  el.innerText=s;
-  el.style.color=s.includes('CALL')?'#00ff88':'#ff4444';
- },800);
-}
-setInterval(()=>{
- if(new Date().getSeconds()===55 && document.getElementById('main').style.display==='block') generate();
-},1000);
-</script></body></html>
-<!DOCTYPE html>
-<html>
+<html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JUBAYER TRADING BOT</title>
+<title>BOT HITME - JUBAYER</title>
 <style>
-body{background:#0a0e1a;color:#fff;font-family:Arial;text-align:center;padding:15px;margin:0}
-.login-box,.card{background:#151a2d;padding:25px;border-radius:18px;max-width:380px;margin:30px auto;box-shadow:0 0 30px #00ff8840;border:1px solid #1f2947}
-.logo{width:160px;height:160px;border-radius:50%;border:3px solid #00ff88;margin:0 auto 15px;display:block;box-shadow:0 0 25px #00ff8866;object-fit:cover}
-h1,h2{color:#00ff88;margin:10px 0}
-.signal{font-size:50px;margin:20px 0;font-weight:bold;min-height:60px}
-button{background:#00ff88;color:#000;border:none;padding:14px;width:100%;border-radius:12px;font-weight:bold;font-size:18px;cursor:pointer;margin-top:12px}
-input{width:88%;padding:14px;border-radius:10px;border:none;text-align:center;font-size:16px;margin:10px 0}
-#mainCard{display:none}
-#err{color:#ff4444;display:none;margin-top:10px}
-#text{color:#aaa;margin:10px}
+  body{margin:0;background:#0a0a0a;color:white;display:flex;justify-content:center;align-items:center;height:100vh;font-family:Arial;}
+  .box{background:#151515;padding:30px;border-radius:16px;width:90%;max-width:360px;text-align:center;border:1px solid #00ff88;box-shadow:0 0 25px #00ff8833;}
+  h2{color:#00ff88;margin:0;} p{color:#aaa;font-size:14px;}
+  input{width:90%;padding:13px;border-radius:8px;border:none;margin:15px 0;text-align:center;font-size:16px;background:#222;color:white;}
+  button{width:95%;padding:13px;border-radius:8px;border:none;background:#00ff88;font-weight:bold;font-size:16px;cursor:pointer;}
+  #timer{margin-top:20px;font-size:20px;color:#ffeb3b;font-weight:bold;}
 </style>
 </head>
 <body>
-<div class="login-box" id="loginBox">
-<img src="logo.png" class="logo" alt="Jubayer Logo">
-<h2>JUBAYER TRADING</h2>
-<p>Enter Password to Access</p>
-<input type="password" id="pass" placeholder="Password">
-<button onclick="checkPass()">UNLOCK BOT</button>
-<p id="err">Wrong Password!</p>
-</div>
-<div class="card" id="mainCard">
-<img src="logo.png" class="logo" alt="Jubayer Logo">
-<h1>MR JUBAYER TRADER</h1>
-<div class="signal" id="signal">-</div>
-<div id="text">Waiting for 55s...</div>
-<button onclick="generate()">GET SIGNAL NOW</button>
+<div class="box">
+  <h2>🤖 MR JUBAYER TRADER</h2>
+  <p>BOT VERIFICATION</p>
+  <input type="password" id="pass" placeholder="Enter Password">
+  <button onclick="unlock()">UNLOCK BOT</button>
+  <div id="timer"></div>
 </div>
 <script>
-function checkPass(){
-  const p = document.getElementById('pass').value;
+function unlock(){
+  let p = document.getElementById("pass").value;
   if(p === "jubayer2151"){
-    document.getElementById('loginBox').style.display = 'none';
-    document.getElementById('mainCard').style.display = 'block';
-  } else {
-    document.getElementById('err').style.display = 'block';
+    let sec = 5;
+    let timerDiv = document.getElementById("timer");
+    let interval = setInterval(()=>{
+      timerDiv.innerHTML = sec + " সেকেন্ড পর Redirect হচ্ছে...";
+      sec--;
+      if(sec < 0){
+        clearInterval(interval);
+        timerDiv.innerHTML = "✅ Success! Redirecting...";
+        window.location.href = "https://mdjubayer21514-creator.github.io/MR-jubayer-trader-/";
+      }
+    },1000);
+  }else{
+    alert("❌ ভুল পাসওয়ার্ড!");
   }
 }
-function generate(){
-  document.getElementById('text').innerText = 'Analyzing...';
-  document.getElementById('signal').innerText = '⌛';
-  setTimeout(()=>{
-    let s = Math.random() > 0.5 ? 'CALL 📈' : 'PUT 📉';
-    let el = document.getElementById('signal');
-    el.innerText = s;
-    el.style.color = s.includes('CALL') ? '#00ff88' : '#ff4444';
-    document.getElementById('text').innerText = s.includes('CALL') ? 'Market UP - Next Candle' : 'Market DOWN - Next Candle';
-  }, 800);
-}
-setInterval(()=>{
-  let sec = new Date().getSeconds();
-  if(sec === 55 && document.getElementById('mainCard').style.display === 'block'){
-    generate();
-  }
-}, 1000);
 </script>
-
 </body>
 </html>
