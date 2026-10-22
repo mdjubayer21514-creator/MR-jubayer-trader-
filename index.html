@@ -4,82 +4,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JUBAYER TRADING</title>
+<title>JUBAYER TRADING BOT</title>
 <style>
-body{background:#0a0e1a;color:#fff;font-family:Arial;text-align:center;padding:15px}
-.login-box,.card{background:#151a2d;padding:20px;border-radius:15px;max-width:380px;margin:20px auto;box-shadow:0 0 20px #00ff8855}
-.logo{width:150px;height:150px;border-radius:50%;border:3px solid #00ff88;margin:10px auto;display:block}
-.signal{font-size:45px;margin:20px;font-weight:bold;height:50px}
-button{background:#00ff88;color:#000;border:none;padding:12px;width:100%;border-radius:10px;font-weight:bold;font-size:18px;margin-top:10px}
-input{width:85%;padding:12px;border-radius:8px;border:none;text-align:center}
+body{background:#0a0e1a;color:#fff;font-family:Arial;text-align:center;padding:15px;margin:0}
+.login-box,.card{background:#151a2d;padding:25px;border-radius:18px;max-width:380px;margin:30px auto;box-shadow:0 0 30px #00ff8840;border:1px solid #1f2947}
+.logo{width:160px;height:160px;border-radius:50%;border:3px solid #00ff88;margin:0 auto 15px;display:block;box-shadow:0 0 25px #00ff8866;object-fit:cover}
+h1,h2{color:#00ff88;margin:10px 0}
+.signal{font-size:50px;margin:20px 0;font-weight:bold;min-height:60px}
+button{background:#00ff88;color:#000;border:none;padding:14px;width:100%;border-radius:12px;font-weight:bold;font-size:18px;cursor:pointer;margin-top:12px}
+input{width:88%;padding:14px;border-radius:10px;border:none;text-align:center;font-size:16px;margin:10px 0}
 #mainCard{display:none}
-#err{color:red;display:none}
-</style>
-</head>
-<body>
-<div class="login-box" id="loginBox">
-<img src="https://i.ibb.co/My3hZ0L3/wa-image-7899859322017807046.jpg" class="logo">
-<h2 style="color:#00ff88">JUBAYER TRADING</h2>
-<input type="password" id="pass" placeholder="Enter Password">
-<button onclick="checkPass()">UNLOCK</button>
-<p id="err">Wrong Password!</p>
-</div>
-<div class="card" id="mainCard">
-<img src="https://i.ibb.co/My3hZ0L3/wa-image-7899859322017807046.jpg" class="logo">
-<h1 style="color:#00ff88">MR JUBAYER TRADER</h1>
-<div id="signal">-</div>
-<div id="text">Waiting for 55s...</div>
-<button onclick="generate()">GET SIGNAL</button>
-</div>
-<script>
-function checkPass(){
- if(document.getElementById('pass').value==="jubayer2151"){
-  loginBox.style.display='none';
-  mainCard.style.display='block';
- }else{
-  err.style.display='block';
- }
-}
-function generate(){
- text.innerText='Analyzing...';
- signal.innerText='⌛';
- setTimeout(()=>{
-  let s=Math.random()>0.5?'CALL 📈':'PUT 📉';
-  signal.innerText=s;
-  signal.style.color=s.includes('CALL')?'#00ff88':'#ff4444';
- },800);
-}
-setInterval(()=>{
- if(new Date().getSeconds()===55 && mainCard.style.display==='block') generate();
-},1000);
-</script>
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JUBAYER TRADING - 5SEC BOT</title>
-<style>
-body{background:#0a0e1a;color:white;font-family:Arial;text-align:center;margin:0;padding:15px}
-.card,.login-box{background:#151a2d;padding:20px;border-radius:15px;max-width:380px;margin:20px auto;box-shadow:0 0 25px #00ff8844;border:1px solid #1f2947}
-h1,h2{color:#00ff88;margin-top:10px}
-.signal{font-size:48px;margin:20px;font-weight:bold;height:60px}
-button{background:#00ff88;color:#000;border:none;padding:13px 25px;border-radius:10px;font-size:18px;font-weight:bold;width:100%;margin-top:10px;cursor:pointer}
-.price{font-size:22px;margin:15px;color:#ffd700}
-#timer{font-size:12px;color:#888;margin-top:10px}
-input{width:85%;padding:13px;border-radius:8px;border:none;margin:10px 0;text-align:center;font-size:16px}
 #err{color:#ff4444;display:none;margin-top:10px}
-#mainCard{display:none}
-.logo{width:150px;height:150px;border-radius:50%;border:3px solid #00ff88;box-shadow:0 0 20px #00ff8877;margin:10px auto;display:block;object-fit:cover}
-.logo-big{width:190px;height:190px}
+#text{color:#aaa;margin:10px}
 </style>
 </head>
 <body>
 
 <div class="login-box" id="loginBox">
-<img src="https://i.ibb.co/8g8sBqYv/Jubayer-logo.png" class="logo logo-big" alt="Jubayer Trading" id="logo1">
+<img src="logo.png" class="logo" alt="Jubayer Logo">
 <h2>JUBAYER TRADING</h2>
 <p>Enter Password to Access</p>
 <input type="password" id="pass" placeholder="Password">
@@ -88,125 +30,41 @@ input{width:85%;padding:13px;border-radius:8px;border:none;margin:10px 0;text-al
 </div>
 
 <div class="card" id="mainCard">
-<img src="https://i.ibb.co/8g8sBqYv/Jubayer-logo.png" class="logo" alt="Jubayer Trading" id="logo2">
+<img src="logo.png" class="logo" alt="Jubayer Logo">
 <h1>MR JUBAYER TRADER</h1>
-<div class="price" id="price">EUR/USD: 1.0845</div>
 <div class="signal" id="signal">-</div>
 <div id="text">Waiting for 55s...</div>
-<div id="timer">--</div>
-<button onclick="generate()">GET SIGNAL</button>
+<button onclick="generate()">GET SIGNAL NOW</button>
 </div>
 
 <script>
-// তোমার ছবিটা আমি এখানে base64 করে বসিয়ে দিচ্ছি যাতে আলাদা আপলোড না লাগে
-// ছবির লিংক যদি কাজ না করে, নিচের লাইনে তোমার imgbb লিংকটা বসাও
-const localLogo = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8..." // এটা ছোট করার জন্য আমি বাইরের লিংক ব্যবহার করেছি, চাইলে পুরা base64 দিবো
+function checkPass(){
+  const p = document.getElementById('pass').value;
+  if(p === "jubayer2151"){
+    document.getElementById('loginBox').style.display = 'none';
+    document.getElementById('mainCard').style.display = 'block';
+  } else {
+    document.getElementById('err').style.display = 'block';
+  }
+}
+function generate(){
+  document.getElementById('text').innerText = 'Analyzing...';
+  document.getElementById('signal').innerText = '⌛';
+  setTimeout(()=>{
+    let s = Math.random() > 0.5 ? 'CALL 📈' : 'PUT 📉';
+    let el = document.getElementById('signal');
+    el.innerText = s;
+    el.style.color = s.includes('CALL') ? '#00ff88' : '#ff4444';
+    document.getElementById('text').innerText = s.includes('CALL') ? 'Market UP - Next Candle' : 'Market DOWN - Next Candle';
+  }, 800);
+}
+setInterval(()=>{
+  let sec = new Date().getSeconds();
+  if(sec === 55 && document.getElementById('mainCard').style.display === 'block'){
+    generate();
+  }
+}, 1000);
+</script>
 
-function checkPass(){
- let p=document.getElementById('pass').value;
- if(p==="1234"){
-   document.getElementById('loginBox').style.display='none';
-   document.getElementById('mainCard').style.display='block';
- }else{
-   document.getElementById('err').style.display='block';
- }
-}
-function generate(){
- document.getElementById('text').innerText='Analyzing...';
- document.getElementById('signal').innerText='⌛';
- setTimeout(()=>{
-  let s=Math.random()>0.5?'CALL 📈':'PUT 📉';
-  let c=s.includes('CALL')?'#00ff88':'#ff4444';
-  document.getElementById('signal').innerText=s;
-  document.getElementById('signal').style.color=c;
-  document.getElementById('text').innerText=s.includes('CALL')?'Market UP':'Market DOWN';
- },800);
-}
-setInterval(()=>{
- let now=new Date();
- let sec=now.getSeconds();
- let p=(1.08+Math.random()*0.01).toFixed(4);
- document.getElementById('price').innerText='EUR/USD: '+p;
- let timerEl=document.getElementById('timer');
- if(timerEl){
-  timerEl.innerText='Current: '+sec+'s | Auto Signal at 55s';
-  if(sec===55 && document.getElementById('mainCard').style.display==='block'){
-    generate();
-  }
- }
-},1000);
-</script>
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MR JUBAYER TRADER - 5SEC BOT</title>
-<style>
-body{background:#0a0e1a;color:white;font-family:Arial;text-align:center;margin:0;padding:15px}
-.card,.login-box{background:#151a2d;padding:20px;border-radius:15px;max-width:380px;margin:40px auto;box-shadow:0 0 20px #00ff8844}
-h1,h2{color:#00ff88}
-.signal{font-size:50px;margin:20px;font-weight:bold;height:60px}
-button{background:#00ff88;color:#000;border:none;padding:12px 25px;border-radius:10px;font-size:18px;font-weight:bold;width:100%;margin-top:10px;cursor:pointer}
-.price{font-size:24px;margin:15px;color:#ffd700}
-#timer{font-size:12px;color:#888;margin-top:10px}
-input{width:85%;padding:13px;border-radius:8px;border:none;margin:10px 0;text-align:center;font-size:16px}
-#err{color:#ff4444;display:none;margin-top:10px}
-#mainCard{display:none}
-</style>
-</head>
-<body>
-<div class="login-box" id="loginBox">
-<h2>🔒 MR JUBAYER TRADER</h2>
-<p>Enter Password to Access</p>
-<input type="password" id="pass" placeholder="Password">
-<button onclick="checkPass()">UNLOCK BOT</button>
-<p id="err">Wrong Password!</p>
-</div>
-<div class="card" id="mainCard">
-<h1>MR JUBAYER TRADER</h1>
-<div class="price" id="price">EUR/USD: 1.0845</div>
-<div class="signal" id="signal">-</div>
-<div id="text">Waiting for 55s...</div>
-<div id="timer">--</div>
-<button onclick="generate()">GET SIGNAL</button>
-</div>
-<script>
-function checkPass(){
- let p=document.getElementById('pass').value;
- if(p==="1234"){
-   document.getElementById('loginBox').style.display='none';
-   document.getElementById('mainCard').style.display='block';
- }else{
-   document.getElementById('err').style.display='block';
- }
-}
-function generate(){
- document.getElementById('text').innerText='Analyzing...';
- document.getElementById('signal').innerText='⌛';
- setTimeout(()=>{
-  let s=Math.random()>0.5?'CALL 📈':'PUT 📉';
-  let c=s.includes('CALL')?'#00ff88':'#ff4444';
-  document.getElementById('signal').innerText=s;
-  document.getElementById('signal').style.color=c;
-  document.getElementById('text').innerText=s.includes('CALL')?'Market UP':'Market DOWN';
- },800);
-}
-setInterval(()=>{
- let now=new Date();
- let sec=now.getSeconds();
- let p=(1.08+Math.random()*0.01).toFixed(4);
- document.getElementById('price').innerText='EUR/USD: '+p;
- let timerEl=document.getElementById('timer');
- if(timerEl){
-  timerEl.innerText='Current: '+sec+'s | Auto Signal at 55s';
-  if(sec===55 && document.getElementById('mainCard').style.display==='block'){
-    generate();
-  }
- }
-},1000);
-</script>
 </body>
 </html>
