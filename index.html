@@ -1,4 +1,60 @@
 
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>JUBAYER BOT</title>
+<style>
+body{background:#0a0e1a;color:#fff;text-align:center;font-family:Arial;padding:15px}
+.box{background:#151a2d;padding:25px;border-radius:20px;max-width:380px;margin:30px auto;border:1px solid #1f2d5a;box-shadow:0 0 30px #0a1930}
+.logo{width:185px;height:185px;border-radius:50%;border:3px solid #f0c75e;box-shadow:0 0 25px #f0c75e55;object-fit:cover;margin:20px auto 0;display:block;background:#0a1930}
+button{background:#f0c75e;color:#0a1930;padding:14px;width:100%;border:none;border-radius:12px;font-weight:bold;font-size:18px;margin-top:12px;cursor:pointer}
+input{padding:13px;width:88%;border-radius:10px;border:none;text-align:center;font-size:16px}
+#main{display:none}
+.signal{font-size:50px;margin:22px;font-weight:bold;min-height:60px}
+</style></head><body>
+
+<div class="box" id="loginBox">
+<input type="password" id="pass" placeholder="Enter Password">
+<button onclick="checkPass()">UNLOCK BOT</button>
+<p id="err" style="color:#ff5555;display:none;margin-top:10px">Wrong Password!</p>
+<img src="logo.png" class="logo">
+</div>
+
+<div class="box" id="main">
+<div class="signal" id="signal">-</div>
+<div id="text" style="color:#8aa0c8">Waiting for 55s...</div>
+<button onclick="generate()">GET SIGNAL NOW</button>
+<img src="logo.png" class="logo">
+</div>
+
+<script>
+function checkPass(){
+ if(document.getElementById('pass').value==="jubayer2151"){
+  document.getElementById('loginBox').style.display='none';
+  document.getElementById('main').style.display='block';
+ } else {
+  document.getElementById('err').style.display='block';
+ }
+}
+function generate(){
+ document.getElementById('text').innerText='Analyzing...';
+ document.getElementById('signal').innerText='⌛';
+ setTimeout(()=>{
+  let s=Math.random()>0.5?'CALL 📈':'PUT 📉';
+  let el=document.getElementById('signal');
+  el.innerText=s;
+  el.style.color=s.includes('CALL')?'#00ff88':'#ff4444';
+ },800);
+}
+setInterval(()=>{
+ if(new Date().getSeconds()===55 && document.getElementById('main').style.display==='block') generate();
+},1000);
+</script></body></html>
 <!DOCTYPE html>
 <html>
 <head>
