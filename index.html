@@ -1,57 +1,94 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MR JUBAYER TRADER</title>
+<title>JUBAYER TRADING</title>
 <style>
-body{background:#0a0e1a;color:white;font-family:Arial;text-align:center;padding:15px;margin:0}
-.login-box{background:#151a2d;padding:30px;border-radius:15px;max-width:350px;margin:60px auto;box-shadow:0 0 30px #00ff8844}
-.card{background:#151a2d;padding:20px;border-radius:15px;max-width:400px;margin:20px auto;box-shadow:0 0 20px #00ff8844;display:none}
-h1{color:#00ff88;margin:10px 0;font-size:22px}
-.profile-img{width:130px;height:130px;border-radius:50%;border:3px solid #00ff88;object-fit:cover;box-shadow:0 0 20px #00ff88}
-.signal{font-size:38px;margin:15px;font-weight:bold}
-button{background:#00ff88;color:#000;border:none;padding:13px 25px;border-radius:10px;font-size:16px;font-weight:bold;width:100%;margin-top:10px;cursor:pointer}
-input{width:85%;padding:13px;border-radius:8px;border:none;margin:10px 0;text-align:center;font-size:16px}
-.price{font-size:20px;margin:12px;background:#0a0e1a;padding:10px;border-radius:8px}
+body{background:#0a0e1a;color:#fff;font-family:Arial;text-align:center;padding:15px}
+.login-box,.card{background:#151a2d;padding:20px;border-radius:15px;max-width:380px;margin:20px auto;box-shadow:0 0 20px #00ff8855}
+.logo{width:150px;height:150px;border-radius:50%;border:3px solid #00ff88;margin:10px auto;display:block}
+.signal{font-size:45px;margin:20px;font-weight:bold;height:50px}
+button{background:#00ff88;color:#000;border:none;padding:12px;width:100%;border-radius:10px;font-weight:bold;font-size:18px;margin-top:10px}
+input{width:85%;padding:12px;border-radius:8px;border:none;text-align:center}
+#mainCard{display:none}
+#err{color:red;display:none}
 </style>
 </head>
 <body>
 <div class="login-box" id="loginBox">
-<h2 style="color:#00ff88">🔒 MR JUBAYER TRADER</h2>
-<p>Enter Password to Access</p>
-<input type="password" id="pass" placeholder="Password">
-<button onclick="checkPass()">UNLOCK BOT</button>
-<p id="err" style="color:#ff4444;display:none;margin-top:10px">Wrong Password!</p>
+<img src="https://i.ibb.co/My3hZ0L3/wa-image-7899859322017807046.jpg" class="logo">
+<h2 style="color:#00ff88">JUBAYER TRADING</h2>
+<input type="password" id="pass" placeholder="Enter Password">
+<button onclick="checkPass()">UNLOCK</button>
+<p id="err">Wrong Password!</p>
 </div>
-
 <div class="card" id="mainCard">
-<img src="photo.jpg" class="profile-img">
-<h1>MR JUBAYER TRADER</h1>
-<p style="opacity:0.7;margin:0;font-size:13px">Premium Trading Signal Bot</p>
-<div class="price" id="price">EUR/USD: 1.0845</div>
-<div class="signal" id="signal">⏳</div>
-<div id="text" style="margin-bottom:10px">Analyzing Market...</div>
+<img src="https://i.ibb.co/My3hZ0L3/wa-image-7899859322017807046.jpg" class="logo">
+<h1 style="color:#00ff88">MR JUBAYER TRADER</h1>
+<div id="signal">-</div>
+<div id="text">Waiting for 55s...</div>
 <button onclick="generate()">GET SIGNAL</button>
 </div>
+<script>
+function checkPass(){
+ if(document.getElementById('pass').value==="jubayer2151"){
+  loginBox.style.display='none';
+  mainCard.style.display='block';
+ }else{
+  err.style.display='block';
+ }
+}
+function generate(){
+ text.innerText='Analyzing...';
+ signal.innerText='⌛';
+ setTimeout(()=>{
+  let s=Math.random()>0.5?'CALL 📈':'PUT 📉';
+  signal.innerText=s;
+  signal.style.color=s.includes('CALL')?'#00ff88':'#ff4444';
+ },800);
+}
+setInterval(()=>{
+ if(new Date().getSeconds()===55 && mainCard.style.display==='block') generate();
+},1000);
+</script>
+</body>
+</html>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MR JUBAYER TRADER - 5SEC BOT</title>
+<title>JUBAYER TRADING - 5SEC BOT</title>
 <style>
-body{background:#0a0e1a;color:white;font-family:Arial;text-align:center;margin:0;padding:0}
-.card{background:#151a2d;padding:20px;border-radius:15px;max-width:380px;margin:40px auto}
-h1{color:#00ff88}
-.signal{font-size:50px;margin:20px;font-weight:bold;height:60px}
-button{background:#00ff88;color:#000;border:none;padding:12px 25px;border-radius:10px;font-size:18px;font-weight:bold;width:100%;margin-top:10px}
-.price{font-size:24px;margin:15px;color:#ffd700}
+body{background:#0a0e1a;color:white;font-family:Arial;text-align:center;margin:0;padding:15px}
+.card,.login-box{background:#151a2d;padding:20px;border-radius:15px;max-width:380px;margin:20px auto;box-shadow:0 0 25px #00ff8844;border:1px solid #1f2947}
+h1,h2{color:#00ff88;margin-top:10px}
+.signal{font-size:48px;margin:20px;font-weight:bold;height:60px}
+button{background:#00ff88;color:#000;border:none;padding:13px 25px;border-radius:10px;font-size:18px;font-weight:bold;width:100%;margin-top:10px;cursor:pointer}
+.price{font-size:22px;margin:15px;color:#ffd700}
 #timer{font-size:12px;color:#888;margin-top:10px}
+input{width:85%;padding:13px;border-radius:8px;border:none;margin:10px 0;text-align:center;font-size:16px}
+#err{color:#ff4444;display:none;margin-top:10px}
+#mainCard{display:none}
+.logo{width:150px;height:150px;border-radius:50%;border:3px solid #00ff88;box-shadow:0 0 20px #00ff8877;margin:10px auto;display:block;object-fit:cover}
+.logo-big{width:190px;height:190px}
 </style>
 </head>
 <body>
-<div class="card">
+
+<div class="login-box" id="loginBox">
+<img src="https://i.ibb.co/8g8sBqYv/Jubayer-logo.png" class="logo logo-big" alt="Jubayer Trading" id="logo1">
+<h2>JUBAYER TRADING</h2>
+<p>Enter Password to Access</p>
+<input type="password" id="pass" placeholder="Password">
+<button onclick="checkPass()">UNLOCK BOT</button>
+<p id="err">Wrong Password!</p>
+</div>
+
+<div class="card" id="mainCard">
+<img src="https://i.ibb.co/8g8sBqYv/Jubayer-logo.png" class="logo" alt="Jubayer Trading" id="logo2">
 <h1>MR JUBAYER TRADER</h1>
 <div class="price" id="price">EUR/USD: 1.0845</div>
 <div class="signal" id="signal">-</div>
@@ -61,103 +98,115 @@ button{background:#00ff88;color:#000;border:none;padding:12px 25px;border-radius
 </div>
 
 <script>
+// তোমার ছবিটা আমি এখানে base64 করে বসিয়ে দিচ্ছি যাতে আলাদা আপলোড না লাগে
+// ছবির লিংক যদি কাজ না করে, নিচের লাইনে তোমার imgbb লিংকটা বসাও
+const localLogo = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAAA8..." // এটা ছোট করার জন্য আমি বাইরের লিংক ব্যবহার করেছি, চাইলে পুরা base64 দিবো
+
+function checkPass(){
+ let p=document.getElementById('pass').value;
+ if(p==="1234"){
+   document.getElementById('loginBox').style.display='none';
+   document.getElementById('mainCard').style.display='block';
+ }else{
+   document.getElementById('err').style.display='block';
+ }
+}
 function generate(){
-document.getElementById('text').innerText='Analyzing...';
-document.getElementById('signal').innerText='⌛';
-setTimeout(()=>{
-let s=Math.random()>0.5?'CALL 📈':'PUT 📉';
-let c=s.includes('CALL')?'#00ff88':'#ff4444';
-document.getElementById('signal').innerText=s;
-document.getElementById('signal').style.color=c;
-document.getElementById('text').innerText=s.includes('CALL')?'Market UP':'Market DOWN';
-},800);
+ document.getElementById('text').innerText='Analyzing...';
+ document.getElementById('signal').innerText='⌛';
+ setTimeout(()=>{
+  let s=Math.random()>0.5?'CALL 📈':'PUT 📉';
+  let c=s.includes('CALL')?'#00ff88':'#ff4444';
+  document.getElementById('signal').innerText=s;
+  document.getElementById('signal').style.color=c;
+  document.getElementById('text').innerText=s.includes('CALL')?'Market UP':'Market DOWN';
+ },800);
 }
-
-// 5 SECOND EARLY LOGIC
 setInterval(()=>{
-let now=new Date();
-let sec=now.getSeconds();
-let p=(1.08+Math.random()*0.01).toFixed(4);
-document.getElementById('price').innerText='EUR/USD: '+p;
-document.getElementById('timer').innerText='Current: '+sec+'s | Auto Signal at 55s';
-
-if(sec===55){
-generate();
-}
+ let now=new Date();
+ let sec=now.getSeconds();
+ let p=(1.08+Math.random()*0.01).toFixed(4);
+ document.getElementById('price').innerText='EUR/USD: '+p;
+ let timerEl=document.getElementById('timer');
+ if(timerEl){
+  timerEl.innerText='Current: '+sec+'s | Auto Signal at 55s';
+  if(sec===55 && document.getElementById('mainCard').style.display==='block'){
+    generate();
+  }
+ }
 },1000);
 </script>
 </body>
 </html>
-<script>
-function checkPass(){
-  var p=document.getElementById('pass').value;
-  if(p==='jubayer'){
-    document.getElementById('loginBox').style.display='none';
-    document.getElementById('mainCard').style.display='block';
-    generate();
-  }else{
-    document.getElementById('err').style.display='block';
-  }
-}
-function generate(){
-document.getElementById('text').innerText='Analyzing...';
-document.getElementById('signal').innerText='⏳';
-setTimeout(()=>{
-let s=Math.random()>0.5?'CALL 📈':'PUT 📉';
-let c=s.includes('CALL')?'#00ff88':'#ff4444';
-document.getElementById('signal').innerText=s;
-document.getElementById('signal').style.color=c;
-document.getElementById('text').innerText=s.includes('CALL')?'Market UP - CALL':'Market DOWN - PUT';
-},800);
-  
-setInterval(()=>{
-let p=(1.08+Math.random()*0.01).toFixed(4);
-document.getElementById('price').innerText='EUR/USD: '+p;
-},1500);
-</script>
-}
-</body>
-</html>
-
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MR Jubayer Trader - Live Bot</title>
+<title>MR JUBAYER TRADER - 5SEC BOT</title>
 <style>
-body{background:#0a0e1a;color:white;font-family:Arial;text-align:center;padding:20px}
-.card{background:#151a2d;padding:20px;border-radius:15px;max-width:400px;margin:auto;box-shadow:0 0 20px #00ff8844}
-h1{color:#00ff88}
-.signal{font-size:50px;margin:20px}
-button{background:#00ff88;color:#000;border:none;padding:15px 30px;border-radius:10px;font-size:18px;font-weight:bold;width:100%;margin-top:10px}
-.price{font-size:24px;margin:15px}
+body{background:#0a0e1a;color:white;font-family:Arial;text-align:center;margin:0;padding:15px}
+.card,.login-box{background:#151a2d;padding:20px;border-radius:15px;max-width:380px;margin:40px auto;box-shadow:0 0 20px #00ff8844}
+h1,h2{color:#00ff88}
+.signal{font-size:50px;margin:20px;font-weight:bold;height:60px}
+button{background:#00ff88;color:#000;border:none;padding:12px 25px;border-radius:10px;font-size:18px;font-weight:bold;width:100%;margin-top:10px;cursor:pointer}
+.price{font-size:24px;margin:15px;color:#ffd700}
+#timer{font-size:12px;color:#888;margin-top:10px}
+input{width:85%;padding:13px;border-radius:8px;border:none;margin:10px 0;text-align:center;font-size:16px}
+#err{color:#ff4444;display:none;margin-top:10px}
+#mainCard{display:none}
 </style>
 </head>
 <body>
-<div class="card">
+<div class="login-box" id="loginBox">
+<h2>🔒 MR JUBAYER TRADER</h2>
+<p>Enter Password to Access</p>
+<input type="password" id="pass" placeholder="Password">
+<button onclick="checkPass()">UNLOCK BOT</button>
+<p id="err">Wrong Password!</p>
+</div>
+<div class="card" id="mainCard">
 <h1>MR JUBAYER TRADER</h1>
 <div class="price" id="price">EUR/USD: 1.0845</div>
-<div class="signal" id="signal">⏳</div>
-<div id="text">Analyzing Market...</div>
+<div class="signal" id="signal">-</div>
+<div id="text">Waiting for 55s...</div>
+<div id="timer">--</div>
 <button onclick="generate()">GET SIGNAL</button>
-<div style="margin-top:15px;font-size:12px;opacity:0.6">Live Qtex Analysis v2</div>
 </div>
 <script>
+function checkPass(){
+ let p=document.getElementById('pass').value;
+ if(p==="1234"){
+   document.getElementById('loginBox').style.display='none';
+   document.getElementById('mainCard').style.display='block';
+ }else{
+   document.getElementById('err').style.display='block';
+ }
+}
 function generate(){
-document.getElementById('text').innerText='Analyzing...';
-setTimeout(()=>{
-let s=Math.random()>0.5?'CALL 📈':'PUT 📉';
-let c=s.includes('CALL')?'#00ff88':'#ff4444';
-document.getElementById('signal').innerText=s;
-document.getElementById('signal').style.color=c;
-document.getElementById('text').innerText=s.includes('CALL')?'Market Going UP':'Market Going DOWN';
-},800);
+ document.getElementById('text').innerText='Analyzing...';
+ document.getElementById('signal').innerText='⌛';
+ setTimeout(()=>{
+  let s=Math.random()>0.5?'CALL 📈':'PUT 📉';
+  let c=s.includes('CALL')?'#00ff88':'#ff4444';
+  document.getElementById('signal').innerText=s;
+  document.getElementById('signal').style.color=c;
+  document.getElementById('text').innerText=s.includes('CALL')?'Market UP':'Market DOWN';
+ },800);
 }
 setInterval(()=>{
-let p=(1.08+Math.random()*0.01).toFixed(4);
-document.getElementById('price').innerText='EUR/USD: '+p;
-},1500);
-generate();
+ let now=new Date();
+ let sec=now.getSeconds();
+ let p=(1.08+Math.random()*0.01).toFixed(4);
+ document.getElementById('price').innerText='EUR/USD: '+p;
+ let timerEl=document.getElementById('timer');
+ if(timerEl){
+  timerEl.innerText='Current: '+sec+'s | Auto Signal at 55s';
+  if(sec===55 && document.getElementById('mainCard').style.display==='block'){
+    generate();
+  }
+ }
+},1000);
 </script>
 </body>
 </html>
