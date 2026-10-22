@@ -1,44 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MR JUBAYER PREMIUM</title>
-<style>
-body{margin:0;background:#080808;color:#fff;display:flex;justify-content:center;align-items:center;min-height:100vh;font-family:Arial}
-.card{width:90%;max-width:380px;background:#141414;border:2px solid #FFD700;border-radius:20px;padding:25px;text-align:center}
-h1{color:#FFD700;font-size:22px}.badge{background:#FFD700;color:#000;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:900}
-input{width:100%;padding:14px;border-radius:10px;border:none;background:#222;color:#fff;text-align:center;font-size:20px;box-sizing:border-box;margin:15px 0}
-button{width:100%;padding:14px;border-radius:10px;border:none;background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;font-weight:900;font-size:18px}
-#msg{margin-top:15px;font-weight:bold}
-</style>
-</head>
-<body>
-<div class="card">
-<h1>MR JUBAYER TRADER</h1>
-<span class="badge">PREMIUM 5 SEC BOT</span>
-<p style="color:#aaa">BOT VERIFICATION</p>
-<input type="password" id="myPass" placeholder="Enter Password">
-<button id="myBtn">UNLOCK PREMIUM BOT</button>
-<div id="msg"></div>
-<div id="signal" style="margin-top:20px;display:none"></div>
-</div>
-<script>
-document.getElementById("myBtn").addEventListener("click", function(){
-  var p = document.getElementById("myPass").value.trim().toLowerCase();
-  if(p === "jubayer2151"){
-    var s = 5;
-    document.getElementById("msg").innerHTML = s + " sec...";
-    var timer = setInterval(function(){
-      s--;
-      if(s>0){document.getElementById("msg").innerHTML = s + " sec...";}
-      else{
-        clearInterval(timer);
-        document.getElementById("msg").innerHTML = "SUCCESS! Bot Started ✅";
-        var sig = document.getElementById("signal");
-        sig.style.display="block";
-        sig.innerHTML="Analyzing...";
-        setTimeout(function(){ sig.innerHTML = Math.random()>0.5 ? '<div style="color:#00ff88;font-size:32px;font-weight:900">⬆ BUY NOW</div>' : '<div style="color:#ff0040;font-size:32px;font-weight:900">⬇ SELL NOW</div>'; },1500);
+(function(){ sig.innerHTML = Math.random()>0.5 ? '<div style="color:#00ff88;font-size:32px;font-weight:900">⬆ BUY NOW</div>' : '<div style="color:#ff0040;font-size:32px;font-weight:900">⬇ SELL NOW</div>'; },1500);
       }
     },1000);
   }else{ alert("Wrong Password!"); }
