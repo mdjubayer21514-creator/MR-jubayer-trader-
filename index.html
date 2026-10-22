@@ -34,7 +34,60 @@ input{width:85%;padding:13px;border-radius:8px;border:none;margin:10px 0;text-al
 <div id="text" style="margin-bottom:10px">Analyzing Market...</div>
 <button onclick="generate()">GET SIGNAL</button>
 </div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MR JUBAYER TRADER - 5SEC BOT</title>
+<style>
+body{background:#0a0e1a;color:white;font-family:Arial;text-align:center;margin:0;padding:0}
+.card{background:#151a2d;padding:20px;border-radius:15px;max-width:380px;margin:40px auto}
+h1{color:#00ff88}
+.signal{font-size:50px;margin:20px;font-weight:bold;height:60px}
+button{background:#00ff88;color:#000;border:none;padding:12px 25px;border-radius:10px;font-size:18px;font-weight:bold;width:100%;margin-top:10px}
+.price{font-size:24px;margin:15px;color:#ffd700}
+#timer{font-size:12px;color:#888;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>MR JUBAYER TRADER</h1>
+<div class="price" id="price">EUR/USD: 1.0845</div>
+<div class="signal" id="signal">-</div>
+<div id="text">Waiting for 55s...</div>
+<div id="timer">--</div>
+<button onclick="generate()">GET SIGNAL</button>
+</div>
 
+<script>
+function generate(){
+document.getElementById('text').innerText='Analyzing...';
+document.getElementById('signal').innerText='⌛';
+setTimeout(()=>{
+let s=Math.random()>0.5?'CALL 📈':'PUT 📉';
+let c=s.includes('CALL')?'#00ff88':'#ff4444';
+document.getElementById('signal').innerText=s;
+document.getElementById('signal').style.color=c;
+document.getElementById('text').innerText=s.includes('CALL')?'Market UP':'Market DOWN';
+},800);
+}
+
+// 5 SECOND EARLY LOGIC
+setInterval(()=>{
+let now=new Date();
+let sec=now.getSeconds();
+let p=(1.08+Math.random()*0.01).toFixed(4);
+document.getElementById('price').innerText='EUR/USD: '+p;
+document.getElementById('timer').innerText='Current: '+sec+'s | Auto Signal at 55s';
+
+if(sec===55){
+generate();
+}
+},1000);
+</script>
+</body>
+</html>
 <script>
 function checkPass(){
   var p=document.getElementById('pass').value;
@@ -56,18 +109,19 @@ document.getElementById('signal').innerText=s;
 document.getElementById('signal').style.color=c;
 document.getElementById('text').innerText=s.includes('CALL')?'Market UP - CALL':'Market DOWN - PUT';
 },800);
-}
+  
 setInterval(()=>{
 let p=(1.08+Math.random()*0.01).toFixed(4);
 document.getElementById('price').innerText='EUR/USD: '+p;
 },1500);
 </script>
+}
 </body>
 </html>
-<!DOCTYPE html>
+
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8"
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MR Jubayer Trader - Live Bot</title>
 <style>
