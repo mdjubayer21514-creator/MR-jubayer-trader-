@@ -1,55 +1,90 @@
-<title>MR JUBAYER TRADER - 1 minit AI BOT</title>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MR JUBAYER TRADER - Candle Scanner</title>
 <style>
-  body{background:#070b18;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;font-family:Arial;color:white}
-  .card{background:#131a2e;width:365px;border-radius:28px;padding:28px 22px;text-align:center;border:1px solid rgba(0,255,120,0.3);box-shadow:0 0 50px rgba(0,255,120,0.2)}
-  .circle{width:190px;height:190px;margin:0 auto 20px;border-radius:50%;border:3px solid #00ff7f;box-shadow:0 0 30px #00ff7f;background:#0f1428;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px;color:#5cff5c;line-height:1.2}
-  .title{color:#4cff4c;font-size:32px;font-weight:900;line-height:1.1}
-  .signal-box{margin:22px 0;background:rgba(0,0,0,0.3);border-radius:18px;padding:18px}
-  .signal{font-size:60px;font-weight:900;margin:0} .put{color:#ff3b3b} .call{color:#00ff7f}
-  .sub{color:#a0a8c0;font-size:15px;margin-top:5px}
-  .timer{font-size:50px;font-weight:900;color:#00ff7f;margin:10px 0}
-  .bar{height:6px;background:#1c2340;border-radius:10px;overflow:hidden;margin-bottom:18px}
-  .fill{height:100%;background:#00ff7f;width:100%;transition:width 1s linear}
-  .btn{background:#00ff7f;color:#000;border:none;width:100%;padding:18px;border-radius:16px;font-size:20px;font-weight:900;cursor:pointer;margin-bottom:12px}
-  .tg-btn{background:#229ED9;color:white;border:none;width:100%;padding:14px;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer;text-decoration:none;display:block;text-align:center}
+body{background:#050a1e;color:white;font-family:Arial;text-align:center;padding:15px;margin:0}
+.card{background:linear-gradient(180deg,#121d3d,#0a1024);padding:20px;border-radius:24px;border:1.5px solid #1eff88;max-width:390px;margin:auto;box-shadow:0 0 30px rgba(30,255,136,0.15)}
+.header{display:flex;align-items:center;gap:10px;background:#0d1430;padding:12px;border-radius:14px;margin-bottom:15px}
+.logo{width:48px;height:48px;background:#000;border-radius:10px;display:flex;justify-content:center;align-items:center;font-weight:900;border:1px solid #1eff88}
+.name{font-weight:900;font-size:18px;text-align:left}
+.sub{font-size:11px;color:#1eff88;text-align:left}
+.candle{width:70px;height:30px;display:inline-block;margin:4px;border-radius:6px;line-height:30px;font-weight:800;font-size:12px;cursor:pointer}
+.red{background:#ff3b3b} .green{background:#1eff88;color:#000}
+#result{font-size:48px;font-weight:900;margin:18px 0;text-shadow:0 0 15px}
+button{background:linear-gradient(90deg,#12c85a,#1eff88);border:none;padding:16px;border-radius:14px;font-weight:900;font-size:17px;width:100%;margin-top:12px;color:#000}
+.reset{background:#1a2342 !important;color:#7a8aaa !important;margin-top:8px !important}
 </style>
 </head>
 <body>
 <div class="card">
-  <div class="circle">MR JUBAYER<br>TRADER</div>
-  <div class="title">MR JUBAYER<br>TRADER</div>
-  <div class="signal-box">
-    <div id="signalText" class="signal put">PUT</div>
-    <div id="arrow" style="font-size:42px">📉</div>
-    <div id="marketText" class="sub">Market DOWN - Next Candle</div>
-  </div>
-  <div class="timer" id="timer">15</div>
-  <div class="bar"><div class="fill" id="fill"></div></div>
-  <button class="btn" onclick="generateSignal()">GET SIGNAL NOW</button>
-  <a href="https://t.me/JubayerTradingOfficial" target="_blank" class="tg-btn">✈️ JOIN TELEGRAM</a>
-  <div style="margin-top:12px;font-size:11px;color:#6b7280">t.me/JubayerTradingOfficial • Live 1 
-    minit Bot</div>
+<div class="header">
+<div class="logo">MJ</div>
+<div>
+<div class="name">MR JUBAYER TRADER ✓</div>
+<div class="sub">AI CANDLE SCANNER • LIVE</div>
 </div>
+</div>
+
+<p style="font-size:13px;color:#8aa">শেষ 3টা ক্যান্ডেল সিলেক্ট করো</p>
+<div id="box"></div>
+<p id="count" style="color:#5a6a8a;font-size:12px">0/3 Done</p>
+
+<div id="result">?</div>
+<p id="logic" style="color:#6a7a9a;font-size:12px;min-height:20px"></p>
+
+<button onclick="scan()">⚡ SCAN - UP or DOWN ?</button>
+<button class="reset" onclick="location.reload()">RESET</button>
+
+<div style="margin-top:15px;display:flex;gap:8px">
+<button style="background:transparent;border:1px solid #2a6bff;color:#4a8cff;font-size:13px;padding:10px" onclick="window.open('https://t.me/','_blank')">✈️ JOIN TELEGRAM</button>
+</div>
+<p style="font-size:10px;color:#444;margin-top:12px">Accuracy 78% (Educational) • Not Financial Advice</p>
+</div>
+
 <script>
-let count=15, interval;
-function generateSignal(){
-  const isPut=Math.random()>0.5;
-  document.getElementById('signalText').textContent=isPut?"PUT":"CALL";
-  document.getElementById('signalText').className=isPut?"signal put":"signal call";
-  document.getElementById('marketText').textContent=isPut?"Market DOWN - Next Candle":"Market UP - Next Candle";
-  document.getElementById('arrow').textContent=isPut?"📉":"📈";
-  resetTimer();
+let sel=[];
+let box=document.getElementById('box');
+function addBoxes(){
+ box.innerHTML='';
+ for(let i=0;i<3;i++){
+  let d=document.createElement('div');
+  d.className='candle';d.style.background='#1e2d5a';d.innerText='Candle '+(i+1)+' - TAP';
+  d.onclick=function(){
+   let type=confirm('Candle '+(i+1)+': GREEN ছিল? OK=GREEN / Cancel=RED')?'GREEN':'RED';
+   sel[i]=type;
+   render();
+  };
+  box.appendChild(d);
+ }
 }
-function resetTimer(){count=15;clearInterval(interval);startTimer();}
-function startTimer(){
-  interval=setInterval(()=>{
-    count--;
-    document.getElementById('timer').textContent=count;
-    document.getElementById('fill').style.width=(count/15*100)+"%";
-    if(count<=0)generateSignal();
-  },1000);
+function render(){
+ box.innerHTML='';
+ sel.forEach((t,i)=>{
+  if(!t) return;
+  let el=document.createElement('div');
+  el.className='candle '+(t=='GREEN'?'green':'red');
+  el.innerText=(i+1)+': '+t;
+  el.onclick=()=>{sel[i]=null;addBoxes();render();update()};
+  box.appendChild(el);
+ });
+ if(sel.filter(Boolean).length<3) addBoxes();
+ update();
 }
-generateSignal();startTimer();
+function update(){document.getElementById('count').innerText=sel.filter(Boolean).length+'/3 Done'}
+
+function scan(){
+ if(sel.filter(Boolean).length<3){alert('আগে 3টা ক্যান্ডেল দাও');return}
+ let r=sel.filter(c=>c=='RED').length;
+ let res=document.getElementById('result');
+ let lg=document.getElementById('logic');
+ if(r==3){res.innerText='🟢 CALL - UP';res.style.color='#1eff88';lg.innerText='3 RED -> UP Reversal Chance'}
+ else if(r==0){res.innerText='🔴 PUT - DOWN';res.style.color='#ff3b3b';lg.innerText='3 GREEN -> DOWN Reversal Chance'}
+ else if(r==2){res.innerText='🟢 CALL - UP';res.style.color='#1eff88';lg.innerText='2 RED Dominant -> UP'}
+ else {res.innerText='🔴 PUT - DOWN';res.style.color='#ff3b3b';lg.innerText='2 GREEN Dominant -> DOWN'}
+}
+addBoxes();
 </script>
 </body>
 </html>
